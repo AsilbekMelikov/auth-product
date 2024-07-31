@@ -9,7 +9,7 @@ export const footerNavs = [
   },
   {
     label: "product",
-    path: "https://youtube.com/@qirikki",
+    path: "#",
   },
   {
     label: "faq",
@@ -19,31 +19,31 @@ export const footerNavs = [
 
 export const socialMediaInfo = [
   {
-    destination: "https://instagram.com/qirikki",
+    destination: "#",
     label: "Instagram",
     image: "/assets/instagram.svg",
     alt: "instagram",
   },
   {
-    destination: "https://t.me/qirikki",
+    destination: "https://t.me/Asilbek_Melikov",
     label: "Telegram",
     image: "/assets/telegram.svg",
     alt: "telegram",
   },
   {
-    destination: "https://twitter.com/@qirikki",
+    destination: "#",
     label: "Twitter",
     image: "/assets/twitter.svg",
     alt: "twitter",
   },
   {
-    destination: "https://github.com/42uz",
+    destination: "https://github.com/AsilbekMelikov/",
     label: "Github",
     image: "/assets/github.svg",
     alt: "github",
   },
   {
-    destination: "https://youtube.com/@qirikki",
+    destination: "#",
     label: "Youtube",
     image: "/assets/youtube.svg",
     alt: "youtube",
