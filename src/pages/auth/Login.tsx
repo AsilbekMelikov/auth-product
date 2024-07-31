@@ -8,6 +8,8 @@ import FormInput from "../../components/shared/FormInput";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { request, success } from "../../redux/slice/slice";
+import { ToastAction } from "@radix-ui/react-toast";
+import { toast } from "../../../@/components/ui/use-toast";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -39,13 +41,13 @@ const LoginPage = () => {
         navigate("/");
       } catch (error) {
         console.log(error);
-        // toast({
-        //   className: "",
-        //   variant: "destructive",
-        //   title: "Uh oh! Something went wrong.",
-        //   description: "There was a problem with your request.",
-        //   action: <ToastAction altText="Try again">Try again</ToastAction>,
-        // });
+        toast({
+          className: "bg-red-600 text-white",
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: "There was a problem with your request.",
+          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        });
       }
     },
   });
