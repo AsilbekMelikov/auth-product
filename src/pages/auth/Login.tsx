@@ -42,7 +42,7 @@ const LoginPage = () => {
       } catch (error) {
         console.log(error);
         toast({
-          className: "bg-red-600 text-white",
+          className: "bg-red-600 text-white ",
           variant: "destructive",
           title: "Uh oh! Something went wrong.",
           description: "There was a problem with your request.",
@@ -86,7 +86,7 @@ const LoginPage = () => {
             <div className="mt-8 px-4">
               <Button
                 type="submit"
-                className="w-full mb-9 bg-bluetifany hover:bg-opacity-80 text-4 leading-[19.09px] font-medium text-white text-center rounded-lg duration-300 p-4 focus:ring-2 focus:outline-none"
+                className="w-full mb-9 bg-bluetifany hover:bg-opacity-80 text-4 leading-[19.09px] font-medium text-white text-center rounded-lg duration-300 focus:ring-2 focus:outline-none"
               >
                 Login
               </Button>
