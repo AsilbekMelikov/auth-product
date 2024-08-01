@@ -8,6 +8,7 @@ import { RootState } from "../redux/store/store";
 import AddProduct from "./AddProduct";
 import UpdateProduct from "./UpdateProduct";
 import Modal from "./shared/Modal";
+import { toast } from "../../@/components/ui/use-toast";
 
 const ProductList = () => {
   const [showUpdateForm, setShowUpdateForm] = useState({
@@ -39,6 +40,11 @@ const ProductList = () => {
         `https://dummyjson.com/products/${id}`
       );
       console.log(data);
+      toast({
+        className:
+          "bg-success text-white fixed top-0 left-[50%] z-[100] flex max-h-screen w-full translate-x-[-50%] md:max-w-[420px]",
+        title: "Muvaffaqiyatli o'chirildi",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -90,12 +96,6 @@ const ProductList = () => {
                 >
                   Edit qilish
                 </Button>
-                {/* <Button
-                  onClick={() => handleClick(product.id)}
-                  className="bg-red-600 p-[10px] text-white text-[13px] leading-4 tracking-[0.12px]  rounded-md flex items-center justify-center mr-4 hover:bg-opacity-90 duration-300"
-                >
-                  O'chirish
-                </Button> */}
                 <Modal
                   funcAction={() => handleClick(product.id)}
                   triggerButtonCont={"O'chirish"}

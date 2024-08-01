@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../../../@/components/ui/dialog";
+} from "../ui/dialog";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { UnknownAction } from "@reduxjs/toolkit";
 import { ReactNode } from "react";

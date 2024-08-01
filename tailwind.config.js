@@ -25,6 +25,7 @@ module.exports = {
           400: "rgba(153, 153, 153, 1)",
         },
         bluetifany: "#3D82FF",
+        success: "#4caf50",
       },
       keyframes: {
         "accordion-down": {

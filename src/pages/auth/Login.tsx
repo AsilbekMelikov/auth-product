@@ -42,7 +42,8 @@ const LoginPage = () => {
       } catch (error) {
         console.log(error);
         toast({
-          className: "bg-red-600 text-white ",
+          className:
+            "bg-red-600 text-white fixed top-0 left-[50%] z-[100] flex max-h-screen w-full translate-x-[-50%] md:max-w-[420px]",
           variant: "destructive",
           title: "Uh oh! Something went wrong.",
           description: "There was a problem with your request.",
