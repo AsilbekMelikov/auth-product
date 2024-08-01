@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
 import AddProduct from "./AddProduct";
 import UpdateProduct from "./UpdateProduct";
+import Modal from "./shared/Modal";
 
 const ProductList = () => {
   const [showUpdateForm, setShowUpdateForm] = useState({
@@ -89,12 +90,18 @@ const ProductList = () => {
                 >
                   Edit qilish
                 </Button>
-                <Button
+                {/* <Button
                   onClick={() => handleClick(product.id)}
                   className="bg-red-600 p-[10px] text-white text-[13px] leading-4 tracking-[0.12px]  rounded-md flex items-center justify-center mr-4 hover:bg-opacity-90 duration-300"
                 >
                   O'chirish
-                </Button>
+                </Button> */}
+                <Modal
+                  funcAction={() => handleClick(product.id)}
+                  triggerButtonCont={"O'chirish"}
+                  actionButtonCont={"Delete"}
+                  otherClasses="bg-red-600 flex items-center justify-center rounded-md text-white"
+                />
               </div>
             </div>
           );

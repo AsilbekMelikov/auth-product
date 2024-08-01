@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import GlobalSearch from "./GlobalSearch";
 import { Button } from "../../../@/components/ui/button";
 import { setLogOut, setShowProductForm } from "../../redux/slice/slice";
+import Modal from "./Modal";
 import { useDispatch } from "react-redux";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-
   return (
     <>
       <nav className="justify-between items-center flex bg-white fixed z-50 w-full gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
@@ -35,10 +35,19 @@ const Navbar = () => {
             Produkt qo'shish
             <span className="inline-block m-0 p-0 ml-3 text-[18px]">+</span>
           </Button>
-          <Button onClick={() => dispatch(setLogOut())} className="h-14 px-2">
-            <img src="/assets/logout.svg" alt="logout" width={40} height={40} />
-          </Button>
-          {/* <Modal /> */}
+          <Modal
+            funcAction={() => dispatch(setLogOut())}
+            triggerButtonCont={
+              <img
+                src="/assets/logout.svg"
+                alt="logout"
+                width={40}
+                height={40}
+              />
+            }
+            actionButtonCont={"LogOut"}
+            otherClasses="min-h-14 px-2"
+          />
         </div>
       </nav>
     </>
