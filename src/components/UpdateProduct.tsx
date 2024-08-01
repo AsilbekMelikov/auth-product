@@ -9,7 +9,7 @@ import { updateProduct, updateRequestProduct } from "../redux/slice/slice";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
 import { Button } from "../../@/components/ui/button";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
 interface Props {
   show: boolean;
@@ -68,14 +68,31 @@ const UpdateProduct = ({
     },
   });
 
+  useEffect(() => {
+    if (showUpdateForm.show) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [showUpdateForm.show]);
+
   return (
     <>
+      {showUpdateForm.show && (
+        <div
+          onClick={() => setShowUpdateForm({ ...showUpdateForm, show: false })}
+          className="fixed left-0 top-0 w-full h-full overflow-y-hidden bg-black/70 z-[999]"
+        ></div>
+      )}
       <div
         className={`${
           showUpdateForm.show
             ? "visible translate-x-0 overflow-y-auto"
             : "invisible translate-x-full"
-        } fixed z-[60] overflow-x-hidden top-[90px] right-0 drop-shadow-md duration-200 bg-white w-[278px] h-[90vh] rounded-l-[8px] py-6`}
+        } fixed z-[1000] overflow-x-hidden top-0 right-0 drop-shadow-md duration-200 bg-white w-[278px] h-[100vh] rounded-l-[8px] py-6`}
       >
         <h2 className="pb-4 px-[13px] mb-[24px] border-b border-grayThird text-[24px] leading-6 text-left text-black">
           Update produkt

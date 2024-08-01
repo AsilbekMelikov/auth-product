@@ -5,10 +5,15 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { ToastAction } from "@radix-ui/react-toast";
 import { toast } from "../../@/components/ui/use-toast";
-import { addProduct, addRequestProduct } from "../redux/slice/slice";
+import {
+  addProduct,
+  addRequestProduct,
+  setShowProductForm,
+} from "../redux/slice/slice";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
 import { Button } from "../../@/components/ui/button";
+import { useEffect } from "react";
 
 const AddProduct = () => {
   const loading = useSelector(
@@ -61,14 +66,31 @@ const AddProduct = () => {
     },
   });
 
+  useEffect(() => {
+    if (showForm) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [showForm]);
+
   return (
     <>
+      {showForm && (
+        <div
+          onClick={() => dispatch(setShowProductForm())}
+          className="fixed left-0 top-0 w-full h-full overflow-y-hidden bg-black/70 z-[999]"
+        ></div>
+      )}
       <div
         className={`${
           showForm
             ? "visible translate-x-0 overflow-y-auto"
             : "invisible translate-x-full"
-        } fixed z-[60] overflow-x-hidden top-[90px] right-0 drop-shadow-md duration-200 bg-white w-[278px] h-[90vh] rounded-l-[8px] py-6`}
+        } fixed z-[1000] overflow-x-hidden top-0 right-0 drop-shadow-md duration-200 bg-white w-[278px] h-[100vh] rounded-l-[8px] py-6`}
       >
         <h2 className="pb-4 px-[13px] mb-[24px] border-b border-grayThird text-[24px] leading-6 text-left text-black">
           Produkt qo'shish
