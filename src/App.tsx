@@ -15,7 +15,7 @@ function App() {
       {location === "/auth/login" ? "" : <Navbar />}
       <main>
         <section
-          className={`flex min-h-screen flex-1 flex-col px-6 pb-6 ${
+          className={`flex min-h-[66vh] flex-1 flex-col px-6 pb-6 ${
             location === "/auth/login" ? "" : "pt-36"
           } max-md:pb-14 sm:px-14`}
         >
@@ -38,7 +38,14 @@ function App() {
                 path="/added-products"
               />
               <Route element={<LoginPage />} path="auth/login" />
-              <Route element={<NotFound />} path="*" />
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <NotFound />
+                  </ProtectedRoute>
+                }
+                path="*"
+              />
             </Routes>
           </div>
         </section>

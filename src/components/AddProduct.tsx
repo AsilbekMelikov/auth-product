@@ -82,7 +82,7 @@ const AddProduct = () => {
       {showForm && (
         <div
           onClick={() => dispatch(setShowProductForm())}
-          className="fixed left-0 top-0 w-full h-full overflow-y-hidden bg-black/70 z-[999]"
+          className="fixed left-0 top-0 w-full h-full bg-black/70 z-[999]"
         ></div>
       )}
       <div
@@ -143,15 +143,15 @@ const AddProduct = () => {
           />
 
           {/* button */}
-          <div className="px-[13px]">
+          <div className="px-3">
             <Button
               type="submit"
-              className="relative w-full px-[10px] text-[13px] leading-4 tracking-[0.12px]  bg-bluetifany rounded-[7px] text-white duration-200 hover:opacity-85 disabled:opacity-75"
+              className="relative w-full px-[10px] text-[13px] leading-4 tracking-[0.12px]  bg-bluetifany rounded-lg text-white duration-200 hover:opacity-85 disabled:opacity-75"
               disabled={loading}
             >
               {loading ? (
                 <>
-                  <span className="absolute left-[10%] top-[30%] w-[16px] h-[16px] rounded-[50%] border-[3px] border-solid border-loadingColor border-t-[3px] border-t-white animate-loader"></span>
+                  <span className="absolute left-[10%] top-[30%] w-4 h-4 rounded-[50%] border-[3px] border-solid border-loadingColor border-t-[3px] border-t-white animate-loader"></span>
                   <span className="ml-[12px] text-[13px] leading-4 tracking-[0.12px]">
                     Processing...
                   </span>

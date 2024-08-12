@@ -16,6 +16,8 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
 
     /* Linting */
     "strict": true,

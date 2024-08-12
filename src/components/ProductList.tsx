@@ -10,7 +10,11 @@ import UpdateProduct from "./UpdateProduct";
 import Modal from "./shared/Modal";
 import { toast } from "../../@/components/ui/use-toast";
 
-const ProductList = () => {
+interface ProductProps {
+  dataSkipNumber: number;
+}
+
+const ProductList = ({ dataSkipNumber }: ProductProps) => {
   const [showUpdateForm, setShowUpdateForm] = useState({
     show: false,
     id: 0,
@@ -23,7 +27,9 @@ const ProductList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("https://dummyjson.com/products");
+        const { data } = await axios.get(
+          `https://dummyjson.com/products?limit=9&skip=${dataSkipNumber}`
+        );
         dispatch(getProducts(data?.products)); // Handle the data as needed
       } catch (error) {
         console.log(error);
@@ -32,7 +38,7 @@ const ProductList = () => {
     fetchData();
 
     // eslint-disable-next-line
-  }, []);
+  }, [dataSkipNumber]);
   const handleClick = async (id: number) => {
     dispatch(deleteProduct(id));
     try {
@@ -62,7 +68,7 @@ const ProductList = () => {
           return (
             <div
               key={product.id}
-              className="light-border background-light900_dark500 flex flex-col justify-between rounded-lg border shadow-sm"
+              className="light-border bg-white flex flex-col justify-between rounded-lg border shadow-sm"
             >
               <img
                 src={product.thumbnail}

@@ -12,9 +12,9 @@ const Footer = () => {
           className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
           aria-label="Footer"
         >
-          {footerNavs.map((nav) => {
+          {footerNavs.map((nav, index) => {
             return (
-              <div key={nav.path} className="flex-center pb-6">
+              <div key={index} className="flex-center pb-6">
                 <Link
                   to={nav.path}
                   className="inline-flex-center base-medium text-dark200_light800 h-10 px-4 py-2 underline-offset-4 hover:underline"
@@ -26,9 +26,9 @@ const Footer = () => {
           })}
         </nav>
         <div className="mt-10 flex justify-center space-x-10">
-          {socialMediaInfo.map((media) => {
+          {socialMediaInfo.map((media, index) => {
             return (
-              <Link to={media.destination} key={media.destination}>
+              <Link to={media.destination} key={index}>
                 <span className="sr-only">{media.label}</span>
                 <img
                   src={media.image}

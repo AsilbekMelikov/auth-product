@@ -19,8 +19,8 @@ const LoginPage = () => {
     initialValues: { username: "", password: "" },
     validationSchema: Yup.object().shape({
       username: Yup.string()
-        .min(3, "Telefon raqami noto`g`ri")
-        .required("Telefon raqamini kiriting"),
+        .min(3, "Kamida 3 ta bo'lsin")
+        .required("Username kiriting"),
       password: Yup.string()
         .min(8, "Parol kamida 8 ta belgidan iborat bo'lishi kerak")
         .matches(/[a-zA-Zа-яА-я]/, "Parolda kamida bir harf bo'lishi kerak")
@@ -55,7 +55,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex items-center justify-center w-full h-screen gap-12 p-10">
-      <div className="bg-white rounded-[16px] shadow  px-10 py-12 w-[380px] h-[484px]">
+      <div className="bg-white rounded-2xl shadow px-10 py-12 w-[380px] h-[484px] max-md:px-4 max-md:py-6 flex items-center">
         <div className="w-full flex flex-col">
           <h2 className="block text-[32px] font-semibold leading-[38.19px] mb-6 px-4">
             Login
@@ -95,8 +95,12 @@ const LoginPage = () => {
           </form>
         </div>
       </div>
-      <div className="bg-white rounded-[68px] w-[592px] h-[650px] flex items-center justify-center">
+      <div className="bg-white rounded-[68px] w-[592px] h-[650px] items-center justify-center hidden sm:flex">
         <picture>
+          <source
+            srcSet={`/assets/md-logo.png 1x, /assets/md-logo2x.png 2x`}
+            media="(max-width: 680px)"
+          />
           <img
             src={loginLogo}
             alt="Login logo"

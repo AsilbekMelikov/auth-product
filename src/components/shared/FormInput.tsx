@@ -34,7 +34,7 @@ const FormInput = (props: Props) => {
       >
         {labelValue}
         <span
-          className={`${required ? "inline" : "hidden"} ml-[2px] text-red-600`}
+          className={`${required ? "inline" : "hidden"} ml-0.5 text-red-600`}
         >
           *
         </span>

@@ -21,12 +21,13 @@ const Navbar = () => {
             Product<span className="text-primary-500">Website</span>
           </p>
         </Link>
+
+        <GlobalSearch />
         <Link to="/added-products" className="flex items-center gap-1">
           <p className="text-[25px] max-sm:hidden hover:underline">
-            Added products
+            My products
           </p>
         </Link>
-        <GlobalSearch />
         <div className="flex items-center">
           <Button
             onClick={() => dispatch(setShowProductForm())}
